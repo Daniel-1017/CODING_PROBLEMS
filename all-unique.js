@@ -10,6 +10,7 @@ function hasUniqueChars(str) {
   return unique === str ? true : false;
 }
 
+// SOLUTION OF OTHERS
 function hasUniqueChar(str) {
   return new Set(str).size === str.length;
 }
