@@ -29,8 +29,6 @@ function splitTheBill(x) {
     Object.values(x).reduce((acc, curr) => acc + curr, 0) /
     Object.keys(x).length;
   const toPay = {};
-  for (let i in x) {
-    toPay[i] = +(x[i] - a).toFixed(2);
-  }
+  for (let i in x) toPay[i] = +(x[i] - a).toFixed(2);
   return toPay;
 }
