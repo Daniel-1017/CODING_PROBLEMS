@@ -1,0 +1,24 @@
+/* 
+In Russia regular bus tickets usually consist of 6 digits. The ticket is called lucky when the sum of the first three digits equals to the sum of the last three digits. Write a function to find out whether the ticket is lucky or not. Return true if so, otherwise return false. Consider that input is always a string. Watch examples below.
+
+isLucky('123321') => 1+2+3 = 3+2+1 => true // The ticket is lucky
+isLucky('12341234') => false // Only six-digit numbers allowed :(
+isLucky('12a21a') => false // Letters are not allowed :(
+isLucky('100200') => false // :(
+isLucky('22') => false // :(
+isLucky('abcdef') => false // :(
+*/
+
+function isLucky(ticket) {
+  if (ticket.length < 6 || ticket.length > 6 || /[a-z]/gi.test(ticket))
+    return false;
+  const firstThree = [...ticket.slice(0, 3)],
+    lastThree = [...ticket.slice(3)];
+  let sum1 = 0;
+  let sum2 = 0;
+  for (let i = 0; i < 3; i++) {
+    sum1 -= firstThree[i];
+    sum2 -= lastThree[i];
+  }
+  return sum1 === sum2;
+}
