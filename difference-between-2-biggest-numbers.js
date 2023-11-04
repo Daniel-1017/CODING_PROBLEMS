@@ -1,0 +1,40 @@
+/* 
+You have an array of non-negative integers. You need to calculate the difference between the 1st biggest number and the 2nd biggest number of the array.
+
+    diffBig2([10, 5, 2]);
+In this case, the 1st biggest number is 10 and the 2nd biggest number is 5. So, the function returns 5, the result of 10 - 5.
+
+You can assume that the input array has 2 or more elements.
+
+The input array has the sort method disabled, so you will have to solve it in another way.
+*/
+
+// MY SOLUTION
+function findTwoLarges(arr) {
+  let max1 = 0,
+    max2 = 0;
+
+  for (let n of arr) {
+    if (n > max1) max1 = n;
+  }
+
+  arr = arr.filter((_, i) => arr.indexOf(max1) !== i);
+
+  for (let n of arr) {
+    if (n > max2) max2 = n;
+  }
+
+  return [max1, max2];
+}
+
+const diffBig2 = (arr) => {
+  const [max1, max2] = findTwoLarges(arr);
+  return max1 - max2;
+};
+
+// SOLUTION OF OTHERS
+const diffBig2 = (arr) => {
+  let max = Math.max(...arr);
+  arr.splice(arr.indexOf(max), 1);
+  return max - Math.max(...arr);
+};
