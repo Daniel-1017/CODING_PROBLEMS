@@ -22,5 +22,18 @@ Maya won't forget to thank you at the end of her article :)
 */
 
 function hiddenWord(num) {
-  // Please help Maya...
+  const letters = {
+    6 : "a",
+    1 : "b",
+    7 : "d",
+    4 : "e",
+    3 : "i",
+    2 : "l",
+    9 : "m",
+    8 : "n",
+    0 : "o",
+    5 : "t"
+  }
+  
+  return [...num.toString()].map(n => letters[n]).join('')
 }
