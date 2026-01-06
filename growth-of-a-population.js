@@ -29,7 +29,7 @@ There are no fractions of people. At the end of each year, the population count 
 */
 
 function nbYear(p0, percent, aug, p, years = 1) {
-  const population = p0 + p0 * percent / 100 + aug
-  if (population >= p) return years
-  return nbYear(population, percent, aug, p, years + 1);
+    const population = Math.floor(p0 + p0 * percent / 100 + aug);
+    if (population >= p) return years
+    return nbYear(population, percent, aug, p, years + 1);
 }
